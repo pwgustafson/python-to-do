@@ -23,6 +23,8 @@ def index():
 def add():
     task = request.form['task']
     todo_list.add_task(task)
+    app.logger.debug(request.form)
+    app.logger.debug(todo_list.tasks)
     return redirect(url_for('index'))
 
 @app.route('/remove/<task>')
